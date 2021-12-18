@@ -31,11 +31,11 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
+        pip install coverage
     - name: Test with unittest
       run: |
-        python -m unittest test.py | tee test_log.txt
-
+        coverage run -m unittest test.py
+        coverage report > test_log.txt
     - name: telegram Notification
       uses: appleboy/telegram-action@master
       if: always()
@@ -43,5 +43,5 @@ jobs:
         to: 288735800
         token: 5001678276:AAH0MgT6aPNR7pkOGeD5eYFxEsJI3sgE4WA
         message: './test_log.txt'
-        document: '/home/runner/work/tz3/tz3/test_log'
+        document: '/home/runner/work/tz3/tz3/test_log.txt'
 
