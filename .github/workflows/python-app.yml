@@ -38,5 +38,5 @@ jobs:
     - name: telegram Notification
       uses: appleboy/telegram-action@master
       with:
-        to: ${{ secrets.TELEGRAM_CHAT_ID }}
+        to: 288735800
         token: ${{ secrets.TELEGRAM_TOKEN }}
