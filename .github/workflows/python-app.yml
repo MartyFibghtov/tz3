@@ -45,6 +45,7 @@ jobs:
         message: |
           При выполнении возникли ошибки:
           ${{ steps.unittest.outcome }}
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
     - name: success
       uses: appleboy/telegram-action@master
       if: success()
