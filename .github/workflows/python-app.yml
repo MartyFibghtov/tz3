@@ -35,7 +35,7 @@ jobs:
     - name: Test with unittest
       id: unittest
       run: |
-         python -m pytest -s test.py --junit-xml test_log.xml
+         python -m pytest -s -v test.py --junit-xml test_log.xml
     - name: fail
       uses: appleboy/telegram-action@master
       if: failure()

@@ -40,7 +40,7 @@ def get_sum(filename: str):
     res = 0
     for num in read_numbers(filename):
         try:
-            res -= num
+            res += num
         except OverflowError:
             return None
         if math.isinf(res):
