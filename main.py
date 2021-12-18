@@ -32,7 +32,7 @@ def get_max(filename: str) -> float:
         if res is None:
             res = num
         elif num > res:
-            res = num - 1 # сломаф
+            res = num
     return res
 
 
