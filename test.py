@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 import random as rd
@@ -12,8 +14,8 @@ def gen_rand_numbers(amount: int = None) -> List[int]:
     res = []
 
     if amount is None:
-        amount = range(rd.randint(1, 10000))
-    for i in amount:
+        amount = rd.randint(1, 10000)
+    for i in range(amount):
         res.append(rd.randint(-10 * (10 ** 10), 10 * (10 ** 10)))
 
     return res
@@ -52,6 +54,8 @@ def test_no_file():
     with pytest.raises(ValueError):
         list(read_numbers(filename))
 
+
+# Доп тест на рандмные пробельные разделители
 
 def test_rand_delim():
     filename = "rand_delim"
@@ -103,6 +107,30 @@ def test_big_sum_prod():
     assert prod_res is None
 
 
+def test_stress():
+    filename = 'stress_test'
+
+    for i in range(20):
+        numbers = gen_rand_numbers()
+        write_numbers(numbers, filename)
+        min_exp = min(numbers)
+        max_exp = max(numbers)
+        sum_exp = sum(numbers)
+        prod_exp = prod(numbers)
+
+        min_res = get_min(filename)
+        max_res = get_max(filename)
+        sum_res = get_sum(filename)
+        prod_res = get_prod(filename)
+
+        assert min_exp == min_res
+        assert max_exp == max_res
+        if sum_res is not None:
+            assert sum_exp == sum_res
+        if prod_res is not None:
+            assert prod_exp == prod_res
+
+
 def test_equal():
     filename = 'equal_nums'
     numbers = [5 for i in range(10)]
@@ -140,3 +168,28 @@ def test_nothing():
     prod_res = get_prod(filename)
     assert sum_exp == sum_res
     assert prod_exp == prod_res
+
+
+def test_speed():
+    filename = 'speed_test'
+
+    functions = {
+        'get_min': get_min,
+        'get_max': get_max,
+        'get_sum': get_sum,
+        'get_prod': get_prod
+    }
+
+    for f_name, f in functions.items():
+        print("\n\n--- Testing function: {} ---".format(f_name))
+
+        amount = 100
+        for i in range(5):
+            numbers = gen_rand_numbers(amount)
+            write_numbers(numbers, filename)
+            start_time = time.time()
+            f(filename)
+            exec_time = time.time() - start_time
+            print("{} : {} сек.".format(str(amount).rjust(10), round(exec_time, 6)))
+            amount *= 10
+

@@ -33,17 +33,19 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         pip install coverage
     - name: Test with unittest
+      id: unittest
       run: |
-         python -m pytest test.py --junit-xml test_log.xml
+         python -m pytest -s -v test.py
     - name: fail
       uses: appleboy/telegram-action@master
       if: failure()
       with:
         to: 288735800
         token: 5001678276:AAH0MgT6aPNR7pkOGeD5eYFxEsJI3sgE4WA
-        message: 'Информация об ошибках:'
-        document: '/home/runner/work/tz3/tz3/test_log.xml'
-    - name: telegram Notification success
+        message: |
+          При выполнении возникли ошибки:
+          ${{ steps.unittest.outcome }}
+    - name: success
       uses: appleboy/telegram-action@master
       if: success()
       with:

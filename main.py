@@ -39,7 +39,12 @@ def get_max(filename: str) -> float:
 def get_sum(filename: str):
     res = 0
     for num in read_numbers(filename):
-        res += num
+        try:
+            res += num
+        except OverflowError:
+            return None
+        if math.isinf(res):
+            return None
     return res
 
 
