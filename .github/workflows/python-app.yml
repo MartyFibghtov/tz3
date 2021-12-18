@@ -44,7 +44,7 @@ jobs:
         token: 5001678276:AAH0MgT6aPNR7pkOGeD5eYFxEsJI3sgE4WA
         message: |
           При выполнении возникли ошибки:
-          ${{ steps.unittest.outcome }}
+          ${{ steps.unittest.outputs }}
           https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
     - name: success
       uses: appleboy/telegram-action@master
