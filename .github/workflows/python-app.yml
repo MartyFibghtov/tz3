@@ -35,8 +35,8 @@ jobs:
       run: |
         python -m unittest test.py
         
-    - name: "telegram Notification"
-      uses: "appleboy/telegram-action@master"
+    - name: telegram Notification
+      uses: appleboy/telegram-action@master
       with:
-        to: ${{ secrets.TELEGRAM_CHAT_ID }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
+        to: ${{ secrets.TELEGR }}
+        token: ${{ secrets.TOKEN }}

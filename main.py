@@ -46,7 +46,10 @@ def get_sum(filename: str):
 def get_prod(filename: str):
     res = 1
     for num in read_numbers(filename):
-        res *= num
+        try:
+            res *= num
+        except OverflowError:
+            return None
         if math.isinf(res):
             return None
     return res
