@@ -34,6 +34,8 @@ jobs:
     - name: Test with unittest
       run: |
         python -m unittest test.py > test_log.txt
+        ls
+        pwd
         
     - name: telegram Notification
       uses: appleboy/telegram-action@master
