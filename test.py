@@ -168,7 +168,7 @@ def test_nothing():
     prod_res = get_prod(filename)
     assert sum_exp == sum_res
     assert prod_exp == prod_res
-
+#
 
 def test_speed():
     filename = 'speed_test'
