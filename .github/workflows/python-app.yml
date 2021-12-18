@@ -33,7 +33,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with unittest
       run: |
-        python -m unittest test.py > tests_log.txt
+        test_log=$(python -m unittest test.py)
         
     - name: telegram Notification
       uses: appleboy/telegram-action@master
@@ -41,5 +41,5 @@ jobs:
       with:
         to: 288735800
         token: 5001678276:AAH0MgT6aPNR7pkOGeD5eYFxEsJI3sgE4WA
-        message: Логи тестов
+        message: Логи тестов ${{ test_log }}
         documents: tests_log.txt
