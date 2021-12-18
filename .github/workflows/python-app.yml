@@ -35,8 +35,8 @@ jobs:
       run: |
         python -m unittest test.py
         
-    - name: telegram Notification
-      uses: appleboy/telegram-action@master
-      with:
-        to: 288735800
-        token: ${{ secrets.TELEGRAM_TOKEN }}
+    - name: Notify Telegram Action
+      uses: Lukasss93/telegram-action@v2
+      env:
+        TELEGRAM_TOKEN: 288735800
+        TELEGRAM_CHAT: ${{ secrets.TELEGRAM_TOKEN }}
