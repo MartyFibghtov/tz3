@@ -47,6 +47,7 @@ def get_sum(filename: str):
             return None
     return res
 
+
 def get_prod(filename: str):
     res = 1
     for num in read_numbers(filename):
