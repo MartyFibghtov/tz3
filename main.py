@@ -46,7 +46,7 @@ def get_sum(filename: str):
         if math.isinf(res):
             return None
     return res
-
+# для теста
 
 def get_prod(filename: str):
     res = 1
