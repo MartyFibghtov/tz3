@@ -34,14 +34,21 @@ jobs:
         pip install coverage
     - name: Test with unittest
       run: |
-        python -m unittest test.py
-        ls
-    - name: telegram Notification
+         python -m pytest test.py --junit-xml test_log.xml
+    - name: fail
       uses: appleboy/telegram-action@master
-      if: always()
+      if: failure()
       with:
         to: 288735800
         token: 5001678276:AAH0MgT6aPNR7pkOGeD5eYFxEsJI3sgE4WA
-        message: './test_log.txt'
-        document: '/home/runner/work/tz3/tz3/log_file.txt'
+        message: 'Информация об ошибках:'
+        document: '/home/runner/work/tz3/tz3/test_log.txt'
+    - name: telegram Notification success
+      uses: appleboy/telegram-action@master
+      if: success()
+      with:
+        to: 288735800
+        token: 5001678276:AAH0MgT6aPNR7pkOGeD5eYFxEsJI3sgE4WA
+        message: 'ОК'
+
 
