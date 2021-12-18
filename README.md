@@ -1,3 +1,5 @@
+![Тестируем](https://github.com/martyfibghtov/tz3/actions/workflows/python-app.yml/badge.svg)
+
 # tz3
 тз 3
 
