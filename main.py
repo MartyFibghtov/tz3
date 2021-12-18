@@ -31,7 +31,7 @@ def get_max(filename: str) -> float:
     for num in read_numbers(filename):
         if res is None:
             res = num
-        elif num Ю res:
+        elif num > res:
             res = num
     return res
 
