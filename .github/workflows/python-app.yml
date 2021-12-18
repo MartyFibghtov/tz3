@@ -41,5 +41,4 @@ jobs:
       with:
         to: 288735800
         token: 5001678276:AAH0MgT6aPNR7pkOGeD5eYFxEsJI3sgE4WA
-        message: Логи тестов
-        document: tests_log.txt
+        message: $(python -m unittest test.py)
