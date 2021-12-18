@@ -35,8 +35,7 @@ jobs:
     - name: Test with unittest
       run: |
         python -m unittest test.py
-        echo ::set-env name=log_res::$(python -m unittest test.py)
-      id: Test
+        env
         
     - name: telegram Notification
       uses: appleboy/telegram-action@master
