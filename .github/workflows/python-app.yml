@@ -34,8 +34,7 @@ jobs:
         pip install coverage
     - name: Test with unittest
       run: |
-        coverage run -m unittest test.py
-        coverage report > test_log.txt
+        python run -m unittest test.py > test_log.txt
     - name: telegram Notification
       uses: appleboy/telegram-action@master
       if: always()
