@@ -38,5 +38,5 @@ jobs:
     - name: Notify Telegram Action
       uses: Lukasss93/telegram-action@v2
       env:
-        TELEGRAM_TOKEN: 288735800
-        TELEGRAM_CHAT: ${{ secrets.TELEGRAM_TOKEN }}
+        TELEGRAM_CHAT: 288735800
+        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
