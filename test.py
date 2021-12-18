@@ -95,12 +95,12 @@ def test_basic():
     assert prod_exp == prod_res
 
 
-def test_big_sum_prod(self):
+def test_big_sum_prod():
     filename = 'big_prod_sum'
     numbers = [10000 for i in range(10000)]
     write_numbers(numbers, filename)
     prod_res = get_prod(filename)
-    self.assertIsNone(prod_res)
+    assert prod_res is None
 
 
 def test_equal():
