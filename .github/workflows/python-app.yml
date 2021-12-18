@@ -42,7 +42,7 @@ jobs:
         to: 288735800
         token: 5001678276:AAH0MgT6aPNR7pkOGeD5eYFxEsJI3sgE4WA
         message: 'Информация об ошибках:'
-        document: '/home/runner/work/tz3/tz3/test_log.txt'
+        document: '/home/runner/work/tz3/tz3/test_log.xml'
     - name: telegram Notification success
       uses: appleboy/telegram-action@master
       if: success()
