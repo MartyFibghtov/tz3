@@ -42,5 +42,5 @@ jobs:
         to: 288735800
         token: 5001678276:AAH0MgT6aPNR7pkOGeD5eYFxEsJI3sgE4WA
         message: './test_log.txt'
-        document: '/home/runner/work/tz3/tz3/test_log.txt'
+        document: '/home/runner/work/tz3/tz3/log_file.txt'
 

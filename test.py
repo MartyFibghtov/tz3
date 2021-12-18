@@ -142,5 +142,9 @@ class TestMinMaxSumProd(unittest.TestCase):
 
 # class
 
+
 if __name__ == '__main__':
-    unittest.main()
+    log_file = 'log_file.txt'
+    with open(log_file, "w") as f:
+        runner = unittest.TextTestRunner(f)
+        unittest.main(testRunner=runner)
