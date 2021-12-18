@@ -40,18 +40,13 @@ def get_sum(filename: str):
     res = 0
     for num in read_numbers(filename):
         res += num
-        if math.isinf(res):
-            return None
     return res
 
 
 def get_prod(filename: str):
     res = 1
     for num in read_numbers(filename):
-        if res is None:
-            res = num
-        else:
-            res *= num
+        res *= num
         if math.isinf(res):
             return None
     return res
